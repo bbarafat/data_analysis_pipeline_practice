@@ -1,11 +1,12 @@
-.Phony
+.PHONY: clean all
+
 clean:
 	rm -f results/figure/*.png
 	rm -f results/*.dat
+	rm -rf report/count_report_files
+	rm -f report/*.html
 
-.Phony
-all:
-	clean
+all: clean
 	python scripts/wordcount.py --input_file=data/isles.txt --output_file=results/isles.dat
 	python scripts/wordcount.py --input_file=data/abyss.txt --output_file=results/abyss.dat
 	python scripts/wordcount.py --input_file=data/last.txt --output_file=results/last.dat
